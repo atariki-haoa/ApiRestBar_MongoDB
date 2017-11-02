@@ -1,0 +1,45 @@
+{
+    
+       "development": {
+    
+           "username": "root",
+    
+           "password": "asder123",
+    
+           "database": "barapp_node",
+    
+           "host": "127.0.0.1",
+    
+           "dialect": "mysql"
+    
+       },
+    
+       "test": {
+    
+           "username": "root",
+    
+           "password": "asder123",
+    
+           "database": "barapp_node",
+    
+           "host": "127.0.0.1",
+    
+           "dialect": "mysql"
+    
+       },
+    
+       "production": {
+    
+           "username": "root",
+    
+           "password": "asder123",
+    
+           "database": "barapp_node",
+    
+           "host": "127.0.0.1",
+    
+           "dialect": "mysql"
+    
+       }
+    
+   }
