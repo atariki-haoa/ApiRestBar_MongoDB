@@ -15,6 +15,7 @@ api.get('/devolution/:id', md_auth.ensureAuth, DevolutionController.selectQuery)
 api.put('/devolution/:id', md_auth.ensureAuth, DevolutionController.updateQuery); 
 api.delete('/devolution/:id', md_auth.ensureAuth, DevolutionController.deleteQuery);
 api.get('/devolutionAll/', md_auth.ensureAuth, DevolutionController.selectAllQuery);
+api.get('/devolutionTurn/:id', md_auth.ensureAuth, DevolutionController.selectReturnTurnQuery);
 
 
 //exportando la ruta para ocuparla en otro fichero js

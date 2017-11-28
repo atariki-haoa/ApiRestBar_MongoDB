@@ -11,7 +11,8 @@ var md_auth = require('../middlewares/authenticated');
 
 //creando rutas para metodos en UserWorkController
 api.post('/userwork', md_auth.ensureAuth, UserWorkController.saveQuery);
-api.get('/userwork/:id', md_auth.ensureAuth, UserWorkController.rfidQuery);
+api.get('/userworkrfid/:id', md_auth.ensureAuth, UserWorkController.rfidQuery);
+api.get('/userwork/:id', md_auth.ensureAuth, UserWorkController.selectQuery);
 api.put('/userwork/:id', md_auth.ensureAuth, UserWorkController.updateQuery); 
 api.delete('/userwork/:id', md_auth.ensureAuth, UserWorkController.deleteQuery);
 api.get('/userworkAll/', md_auth.ensureAuth, UserWorkController.selectAllQuery);

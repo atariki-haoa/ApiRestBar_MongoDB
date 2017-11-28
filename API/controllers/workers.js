@@ -94,10 +94,28 @@ function selectAllQuery(req, res) {
 
 }
 
+function selectWorkerTurnQuery(req, res) {
+    var objectId = req.params.id;
+    Worker.find({'turn': objectId}).sort('name').exec((err, Workers) => {
+        if (err) {
+            res.status(500).send({ message: 'Error en la peticion' });
+        } else {
+            if (!Workers) {
+                res.status(404).send({ message: 'No hay objetos' });
+            } else {
+                //se puso return "por si acaso para que funcione siempre".
+                return res.status(200).send(JSON.stringify(Workers));
+            }
+        }
+
+    });
+
+}
 module.exports = {
     saveQuery,
     selectQuery,
     updateQuery,
     deleteQuery,
-    selectAllQuery
+    selectAllQuery,
+    selectWorkerTurnQuery
 };

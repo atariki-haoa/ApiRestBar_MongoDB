@@ -7,7 +7,7 @@ var PromotionSchema = Schema({
   start: String,
   end: String,
   hours: Boolean,
-  days: [Number],
+  days: [Boolean],
   status: { type: Schema.ObjectId, ref: 'Status'},  
   createdAt: { type : Date, default: Date.now },
   updatedAt: { type : Date, default: Date.now }

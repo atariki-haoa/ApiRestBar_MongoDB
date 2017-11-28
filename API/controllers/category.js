@@ -6,8 +6,8 @@ function saveQuery(req, res) {
 
     var params = req.body;
     category.name = params.name;
-    category.subCategory = params.subcategory;
-    if (category.name != null && category.subCategory != null) {
+    category.subcategory = params.subcategory;
+    if (category.name != null && category.subcategory != null) {
         category.save((err, CategoryStored) => {
             if (err) {
                 res.status(500).send({ message: 'Error al guardar el objeto' });
@@ -43,7 +43,7 @@ function selectQuery(req, res) {
 
 function updateQuery(req, res) {
     var objectId = req.params.id;
-    var update = req.body;
+    var update = req.body;    
     Category.findByIdAndUpdate(objectId, update, (err, CategoryUpdate) => {
         if (err) {
             res.status(500).send({ message: 'Error al actualizar objeto' });

@@ -72,7 +72,7 @@ function endTurn(req, res) {
                         if(err){
                             console.log(err);
                         }else{
-                            console.log('exito en resetcounter');
+                            console.log('finalizacion de turno con exito ' + new Date().toString());
                             res.status(200).send(JSON.stringify(TurnUpdate));                                                                                      
                         }
                     });

@@ -15,6 +15,7 @@ api.get('/worker/:id', md_auth.ensureAuth, WorkersController.selectQuery);
 api.put('/worker/:id', md_auth.ensureAuth, WorkersController.updateQuery); 
 api.delete('/worker/:id', md_auth.ensureAuth, WorkersController.deleteQuery);
 api.get('/workerAll/', md_auth.ensureAuth, WorkersController.selectAllQuery);
+api.get('/workerTurn/:id', md_auth.ensureAuth, WorkersController.selectWorkerTurnQuery);
 
 
 //exportando la ruta para ocuparla en otro fichero js

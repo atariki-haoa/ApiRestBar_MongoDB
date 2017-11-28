@@ -15,6 +15,7 @@ api.get('/special/:id', md_auth.ensureAuth, SpecialController.selectQuery);
 api.put('/special/:id', md_auth.ensureAuth, SpecialController.updateQuery); 
 api.delete('/special/:id', md_auth.ensureAuth, SpecialController.deleteQuery);
 api.get('/specialAll/', md_auth.ensureAuth, SpecialController.selectAllQuery);
+api.get('/specialTurn/:id', md_auth.ensureAuth, SpecialController.selectSpecialTurnQuery);
 
 
 //exportando la ruta para ocuparla en otro fichero js

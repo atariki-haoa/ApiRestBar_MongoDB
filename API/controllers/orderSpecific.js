@@ -7,6 +7,7 @@ function saveQuery(req, res) {
     orderSpecific.product = params.product;
     orderSpecific.pay = params.pay;
     orderSpecific.extraProduct = params.extraproduct;    
+    orderSpecific.status = params.status;
     if (orderSpecific.product != null && orderSpecific.pay != null) {
         orderSpecific.save((err, OrderSpecificStored) => {
             if (err) {
@@ -44,7 +45,7 @@ function selectQuery(req, res) {
 
 function updateQuery(req, res) {
     var objectId = req.params.id;
-    var update = req.body;
+    var update = req.body;    
     OrderSpecific.findByIdAndUpdate(objectId, update, (err, OrderSpecificUpdate) => {
         if (err) {
             res.status(500).send({ message: 'Error al actualizar objeto' });

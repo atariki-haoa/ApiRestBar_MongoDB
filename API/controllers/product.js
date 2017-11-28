@@ -12,6 +12,7 @@ function saveQuery(req, res) {
     product.promotion = params.promotion;
     product.hasCompanion = params.hascompanion;
     product.ingredients = params.ingredients;
+    product.printer = params.printer;
     if (product.name != null && product.price != null && product.category != null &&
         product.companion != null && product.promotion != null &&
         product.hasCompanion != null && product.ingredients != null) {
@@ -51,6 +52,7 @@ function selectQuery(req, res) {
 function updateQuery(req, res) {
     var objectId = req.params.id;
     var update = req.body;
+    
     Product.findByIdAndUpdate(objectId, update, (err, ProductUpdate) => {
         if (err) {
             res.status(500).send({ message: 'Error al actualizar objeto' });

@@ -15,6 +15,7 @@ api.get('/outcome/:id', md_auth.ensureAuth, OutcomesController.selectQuery);
 api.put('/outcome/:id', md_auth.ensureAuth, OutcomesController.updateQuery); 
 api.delete('/outcome/:id', md_auth.ensureAuth, OutcomesController.deleteQuery);
 api.get('/outcomeAll/', md_auth.ensureAuth, OutcomesController.selectAllQuery);
+api.get('/outcomeTurn/:id', md_auth.ensureAuth, OutcomesController.selectOutcomeTurnQuery);
 
 
 //exportando la ruta para ocuparla en otro fichero js

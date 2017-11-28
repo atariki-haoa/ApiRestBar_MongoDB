@@ -46,8 +46,7 @@ function selectQuery(req, res) {
 }
 
 function rfidQuery(req, res) {
-    var queryRfid = req.params.rfid;
-
+    var queryRfid = req.params.id;
     UserWork.find({'rfid': queryRfid}, (err, UserWork) => {
         if (err) {
             res.status(500).send({ message: 'Error en la peticion' });

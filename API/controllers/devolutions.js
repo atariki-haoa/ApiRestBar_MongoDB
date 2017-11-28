@@ -6,6 +6,7 @@ function saveQuery(req, res) {
 
     var params = req.body;
     devolution.product = params.product;
+    devolution.turn = params.turn;
     if (devolution.product != null) {
         devolution.save((err, DevolutionStored) => {
             if (err) {
@@ -87,10 +88,27 @@ function selectAllQuery(req, res) {
 
 }
 
+function selectReturnTurnQuery(req, res) {
+    var objectId = req.params.id;
+    Devolution.find({ 'turn': objectId }).sort('_Id').exec((err, Return, total) => {
+        if (err) {
+            res.status(500).send({ message: 'Error en la peticion' });
+        } else {
+            if (!Return) {
+                res.status(404).send({ message: 'No hay objetos' });
+            } else {
+                //se puso return "por si acaso para que funcione siempre".
+                return res.status(200).send(JSON.stringify(Return));
+            }
+        }
+
+    });
+}
 module.exports = {
     saveQuery,
     selectQuery,
     updateQuery,
     deleteQuery,
-    selectAllQuery
+    selectAllQuery,
+    selectReturnTurnQuery
 };

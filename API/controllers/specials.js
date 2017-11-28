@@ -8,6 +8,7 @@ function saveQuery(req, res) {
     special.product = params.product;
     special.description = params.description;
     special.price = params.price;
+    special.turn = params.turn;
     if (special.product != null && special.description != null) {
         special.save((err, SpecialStored) => {
             if (err) {
@@ -88,11 +89,27 @@ function selectAllQuery(req, res) {
     });
 
 }
+function selectSpecialTurnQuery(req, res) {
+    var objectId = req.params.id;
+    Special.find({ 'turn': objectId }).sort('_Id').exec((err, Special, total) => {
+        if (err) {
+            res.status(500).send({ message: 'Error en la peticion' });
+        } else {
+            if (!Special) {
+                res.status(404).send({ message: 'No hay objetos' });
+            } else {
+                //se puso return "por si acaso para que funcione siempre".
+                return res.status(200).send(JSON.stringify(Special));
+            }
+        }
 
+    });
+}
 module.exports = {
     saveQuery,
     selectQuery,
     updateQuery,
     deleteQuery,
-    selectAllQuery
+    selectAllQuery,
+    selectSpecialTurnQuery
 };
